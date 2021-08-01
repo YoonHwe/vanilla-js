@@ -1,13 +1,20 @@
-const html = document.querySelector("html");
-const hello = document.querySelector("h1");
-hello.style.color = "white";
-function windowSizeChange() {
-  if (window.innerWidth < 600) {
-    html.style.backgroundColor = "blue";
-  } else if (window.innerWidth >= 600 && window.innerWidth < 900) {
-    html.style.backgroundColor = "purple";
+const inputNumber = document.querySelector("#input_number");
+const guessNumber = document.querySelector("#guess_number");
+const headerInfo = document.querySelector("h4");
+const headerResult = document.querySelector("h5");
+const btn = document.querySelector("#button_play");
+
+
+btn.addEventListener("click", getNumber);
+function getNumber() {
+  const inputNumberInt = parseInt(inputNumber.value);
+  const guessNumberInt = parseInt(guessNumber.value);
+  const answerNumber = Math.floor(Math.random() * inputNumberInt);
+  headerInfo.innerText =
+    "You choose " + guessNumberInt + ", the machine choose " + answerNumber;
+  if (guessNumberInt === answerNumber) {
+    headerResult.innerText = "You win!";
   } else {
-    html.style.backgroundColor = "yellow";
+    headerResult.innerText = "You lost!";
   }
 }
-window.addEventListener("resize", windowSizeChange);
