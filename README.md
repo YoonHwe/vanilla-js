@@ -4,3 +4,4 @@
  HW 2 => windowResize (with innerWidth)
  HW 3 => parseInt, Math.random()
  HW 4 => Date, SetInterval
+ HW 5 => Math.random(), /linear-gradient/

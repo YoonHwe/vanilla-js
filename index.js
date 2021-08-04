@@ -1,29 +1,30 @@
-const clockTitle = document.querySelector(".js-clock");
-function getClock() {
-  const date = new Date();
-  const christmasDay = new Date();
-  christmasDay.setMonth(11);
-  christmasDay.setDate(25);
-  christmasDay.setHours(0);
-  christmasDay.setMinutes(0);
-  christmasDay.setSeconds(0);
-  const month = String(date.getMonth()).padStart(2, "0");
-  const day = String(date.getDay()).padStart(2, "0");
-  const hour = String(date.getHours()).padStart(2, "0");
-  const minute = String(date.getMinutes()).padStart(2, "0");
-  const second = String(date.getSeconds()).padStart(2, "0");
-  date.setMonth(month);
-  date.setDate(day);
-  date.setHours(hour);
-  date.setMinutes(minute);
-  date.setSeconds(second);
-  const timeGap = christmasDay - date;
-  const dayGap = Math.floor(timeGap / (1000 * 60 * 60 * 24));
-  const hourGap = Math.floor(timeGap / (1000 * 60 * 60)) % 24;
-  const minuteGap = Math.floor(timeGap / (1000 * 60)) % 60;
-  const secondGap = Math.floor(timeGap / 1000) % 60;
-  clockTitle.innerText = `${dayGap}d ${hourGap}h ${minuteGap}m ${secondGap}s`;
+const colors = [
+  "#ef5777",
+  "#575fcf",
+  "#4bcffa",
+  "#34e7e4",
+  "#0be881",
+  "#f53b57",
+  "#3c40c6",
+  "#0fbcf9",
+  "#00d8d6",
+  "#05c46b",
+  "#ffc048",
+  "#ffdd59",
+  "#ff5e57",
+  "#d2dae2",
+  "#485460",
+  "#ffa801",
+  "#ffd32a",
+  "#ff3f34"
+];
+
+const button = document.querySelector("button");
+const body = document.querySelector("body");
+function getRandomColor() {
+  body.style.backgroundColor =
+    colors[Math.floor(Math.random() * colors.length)];
+  // body.style.backgroundImage = '-moz-linear-gradient(colors[Math.floor(Math.random()*colors.length)], colors[Math.floor(Math.random()*colors.length)]);
 }
 
-getClock();
-setInterval(getClock, 1000);
+button.addEventListener("click", getRandomColor);
