@@ -1,20 +1,29 @@
-const inputNumber = document.querySelector("#input_number");
-const guessNumber = document.querySelector("#guess_number");
-const headerInfo = document.querySelector("h4");
-const headerResult = document.querySelector("h5");
-const btn = document.querySelector("#button_play");
-
-
-btn.addEventListener("click", getNumber);
-function getNumber() {
-  const inputNumberInt = parseInt(inputNumber.value);
-  const guessNumberInt = parseInt(guessNumber.value);
-  const answerNumber = Math.floor(Math.random() * inputNumberInt);
-  headerInfo.innerText =
-    "You choose " + guessNumberInt + ", the machine choose " + answerNumber;
-  if (guessNumberInt === answerNumber) {
-    headerResult.innerText = "You win!";
-  } else {
-    headerResult.innerText = "You lost!";
-  }
+const clockTitle = document.querySelector(".js-clock");
+function getClock() {
+  const date = new Date();
+  const christmasDay = new Date();
+  christmasDay.setMonth(11);
+  christmasDay.setDate(25);
+  christmasDay.setHours(0);
+  christmasDay.setMinutes(0);
+  christmasDay.setSeconds(0);
+  const month = String(date.getMonth()).padStart(2, "0");
+  const day = String(date.getDay()).padStart(2, "0");
+  const hour = String(date.getHours()).padStart(2, "0");
+  const minute = String(date.getMinutes()).padStart(2, "0");
+  const second = String(date.getSeconds()).padStart(2, "0");
+  date.setMonth(month);
+  date.setDate(day);
+  date.setHours(hour);
+  date.setMinutes(minute);
+  date.setSeconds(second);
+  const timeGap = christmasDay - date;
+  const dayGap = Math.floor(timeGap / (1000 * 60 * 60 * 24));
+  const hourGap = Math.floor(timeGap / (1000 * 60 * 60)) % 24;
+  const minuteGap = Math.floor(timeGap / (1000 * 60)) % 60;
+  const secondGap = Math.floor(timeGap / 1000) % 60;
+  clockTitle.innerText = `${dayGap}d ${hourGap}h ${minuteGap}m ${secondGap}s`;
 }
+
+getClock();
+setInterval(getClock, 1000);

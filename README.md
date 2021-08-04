@@ -3,3 +3,4 @@
  HW 1 => addEventListener
  HW 2 => windowResize (with innerWidth)
  HW 3 => parseInt, Math.random()
+ HW 4 => Date, SetInterval
