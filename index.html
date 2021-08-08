@@ -3,9 +3,36 @@
   <head>
     <title>Vanilla Challenge</title>
     <meta charset="UTF-8" />
+    <link rel="stylesheet" href="style.css">
   </head>
   <body>
-    <button>Give me color</button>
-    <script src="index.js"></script>
+    <div class="left">
+      <div id="username">
+        <div id="username_input">
+          <input type="text" placeholder="What is your name?">
+          <input id="username_submit" type="submit" value="enter">
+        </div>
+        <h1 class="hidden">Hello!</h1>
+      </div>
+      <div id="weather">
+        <span></span>
+        <br>
+        <span></span>
+      </div>
+      <h1 id="clock"></h1>
+    </div>
+    <div class="right">
+      <form id="todo_form">
+        <input id="todo_form_input" type="text" placeholder="Write your To-Do-List" required>
+      </form>
+      <ul id="todo_list"></ul>
+      <button id ="another_image">Get another image</button>
+    </div>
+   
+    <script src="clock.js"></script>
+    <script src="background.js"></script>
+    <script src="weather.js"></script>
+    <script src="username.js"></script>
+    <script src="todo.js"></script>
   </body>
 </html>

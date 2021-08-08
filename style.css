@@ -1,0 +1,10 @@
+body{
+    display: flex;
+    justify-content: space-between;
+    background-image: url("messi1.jpeg");
+    background-size: 100%;
+    color: white;
+}
+.hidden{
+    visibility: hidden;
+}
